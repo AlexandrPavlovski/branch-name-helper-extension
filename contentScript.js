@@ -5,7 +5,7 @@
                 const workItemId = getWorkItemId();
                 const workItemTitle = getWorkItemTitle();
 
-                sendResponse(msg.name + "/" + workItemId + "/" + formatWorkItemTitle(workItemTitle));
+                sendResponse(msg.name + "/do" + workItemId + "/" + formatWorkItemTitle(workItemTitle));
             }
         });
 
