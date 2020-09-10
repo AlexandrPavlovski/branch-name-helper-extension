@@ -1,6 +1,6 @@
 {
     "name": "Branch name helper",
-    "version": "0.1",
+    "version": "0.2",
     "description": "Browser extension to help create a branch name from a ticket on Azure Devops page",
     "permissions": [
         "storage",
@@ -22,6 +22,9 @@
             },
             "description": "Copy branch name"
         }
+    },
+    "icons": {
+        "32": "icon32.png"
     },
     "manifest_version": 2
 }

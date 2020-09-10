@@ -3,12 +3,9 @@
         chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
             if (msg.id === 'copyBranchName') {
                 const workItemId = getWorkItemId();
-                console.log(workItemId);
-                
                 const workItemTitle = getWorkItemTitle();
-                console.log(workItemTitle);
-                
-                sendResponse(workItemId + "/" + workItemTitle);
+
+                sendResponse(msg.name + "/" + workItemId + "/" + formatWorkItemTitle(workItemTitle));
             }
         });
 
@@ -42,4 +39,8 @@ function getWorkItemTitle() {
     }
 
     return workItemIdInput.value;
+}
+
+function formatWorkItemTitle(text) {
+    return text.toLowerCase().replace(/[^0-9a-z -]/g, '').replace(/ /g, '-');
 }

@@ -6,8 +6,9 @@ chrome.commands.onCommand.addListener(function (command) {
                 const isActiveTabAzureWorkItem = activeTab && activeTab.url && activeTab.url.startsWith('https://dev.azure.com') && activeTab.url.includes('workitem');
 
                 if (isActiveTabAzureWorkItem) {
-                    console.log("message sent");
-                    chrome.tabs.sendMessage(activeTab.id, {id: 'copyBranchName'}, copyTextToClipboard);
+                    chrome.storage.sync.get(function(data) {
+                        chrome.tabs.sendMessage(activeTab.id, {id: 'copyBranchName', name: data.name}, copyTextToClipboard);
+                    });
                 }
             });
         });
